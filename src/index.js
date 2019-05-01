@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-// jsx
-ReactDOM.render(<h1>Hello world!</h1>, document.getElementById("root"))
+import MyInfo from "./MyInfo"
+
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
