@@ -13,10 +13,7 @@ import Product from "./Product"
 
 function App() {
     const productsComponents = productsData.map(product => 
-        <Product key={product.id}
-            name={product.name}
-            price={product.price}
-            description={product.description} />
+        <Product key={product.id} product={product} />
         // <div key={product.id}>
         //     <h3>{product.name}</h3>
         //     <ul>
