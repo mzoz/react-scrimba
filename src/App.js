@@ -3,16 +3,18 @@ import React from "react"
 class App extends React.Component {
     constructor() {
         super()
-        this.state = {
-            answer: "yes"
-        }
+    }
+
+    handleMouseOver() {
+        console.log('mouse over image')
     }
 
     render() {
         return (
             <div>
-                <h1>{this.state.name}</h1>
-                <h3>{this.state.age} years old</h3>
+                <img src="https://www.fillmurray.com/200/100" onMouseOver={this.handleMouseOver} />
+                <br />
+                <br />
             </div>
         )
     }
