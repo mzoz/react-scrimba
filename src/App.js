@@ -9,16 +9,21 @@ don't forget to pass a `key` prop to it to avoid the warning.
 
 import React from "react"
 import productsData from "./vschoolProducts"
+import Product from "./Product"
 
 function App() {
     const productsComponents = productsData.map(product => 
-        <div key={product.id}>
-            <h3>{product.name}</h3>
-            <ul>
-                <li>price: {product.price}</li>
-                <li>description: {product.description}</li>
-            </ul>
-        </div>    
+        <Product key={product.id}
+            name={product.name}
+            price={product.price}
+            description={product.description} />
+        // <div key={product.id}>
+        //     <h3>{product.name}</h3>
+        //     <ul>
+        //         <li>price: {product.price}</li>
+        //         <li>description: {product.description}</li>
+        //     </ul>
+        // </div>    
     ) 
   return (
     <div>
