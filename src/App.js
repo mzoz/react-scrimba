@@ -25,12 +25,18 @@ class App extends React.Component {
     }
 
     handleChange(id) {
-
+        this.state.todos.forEach(item => {
+            if (item.id === id) {
+                item.completed = !item.completed
+            }
+        })
+        this.setState(this.state)
     }
 
     render() {
+        console.log('rendering...')
         const todoItems = this.state.todos.map(item => 
-            <TodoItem key={item.id} item={item} />)
+            <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
         return (
             <div className="todo-list">{todoItems}</div>
         )
