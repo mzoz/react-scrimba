@@ -1,14 +1,17 @@
 import React from "react"
 
 function TodoItem(props) {
-    function handleCheck() {
-        console.log("checked!")
-    }
+    // function handleCheck() {
+    //     console.log("checked!")
+    // }
 
     return (
         <div className="todo-item">
-            <input type="checkbox" onChange={handleCheck}/>
-            <p>{props.todo.text}</p>
+            <input 
+                type="checkbox" 
+                checked={props.item.completed}
+                onChange={}/>
+            <p>{props.item.text}</p>
         </div>
     )
 }
