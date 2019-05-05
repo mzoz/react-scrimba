@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import Logging from "./Logging"
 
 class App extends Component {
     constructor() {
@@ -9,12 +8,15 @@ class App extends Component {
     }
 
     handleClick() {
-
+        let toggled = !this.state.logged
+        this.setState({logged: toggled})
     }
 
     render() {
         return (
-            <Logging handleClick={this.handleClick} />
+            <button onClick={this.handleClick}>
+                {this.state.logged ? <span>Logout</span> : <span>Login</span>}
+            </button>
         )
     }
 }
