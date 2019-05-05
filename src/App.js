@@ -1,16 +1,20 @@
 import React, {Component} from "react"
+import Logging from "./Logging"
 
 class App extends Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = {logged: false}
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+
     }
 
     render() {
         return (
-            <div>
-                
-            </div>
+            <Logging handleClick={this.handleClick} />
         )
     }
 }
