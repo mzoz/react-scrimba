@@ -6,19 +6,29 @@ class App extends Component {
         this.state = {
             first: "", 
             last: "", 
-            age: null, 
-            gender: null,
+            age: "", 
+            gender: "",
             destination: "",
-            dietaryRestrictions: []
+            dietary: []
         }
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
-        const {name, value, type} = event.target
-        console.log(name, value, type)
-        // type === "checkbox" ? this.setState({[name]: checked}) : 
-        //                       this.setState({[name]: value})
+        const {type, name, value} = event.target
+        if (type === "select-multiple") {
+            console.log("dietary:", this.state.dietary)
+            console.log("selectedOptions:", event.target.selectedOptions)
+            // this.setState({[name]: Array.from(event.target.selectedOptions, (item) => item.value)});
+            let ops = [...event.target.options].filter(o => o.selected).map(o => o.value)
+            console.log("options:", event.target.options)
+            console.log("options arr:", [event.target.options])
+            console.log("ops:", ops)
+            this.setState({[name]: ops})
+            // this.setState({[name]: ["kos", "veg"]})
+        } else {
+            this.setState({[name]: value})
+        }
     }
 
     render() {
@@ -30,9 +40,22 @@ class App extends Component {
                     <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />
                     <br />
 
-                    <select multiple value={this.state.gender} onChange={this.handleChange}>
-                        <option value="male">male</option>
-                        <option value="femail">femail</option>
+                    <div>
+                        <label>
+                            <input type="radio" name="gender" value="male" onChange={this.handleChange} />
+                            male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female" onChange={this.handleChange} />
+                            female
+                        </label>
+                    </div>
+
+
+                    <select name="dietary" multiple={true} value={this.state.dietary} onChange={this.handleChange}>
+                        <option value="veg">vegetarian</option>
+                        <option value="kos">kosher</option>
+                        <option value="lac">lactose free</option>
                     </select>
                 </form>
             </div>
