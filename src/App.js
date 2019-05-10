@@ -1,18 +1,15 @@
-import React, {Component} from "react"
+import React from "react"
+import Header from "./Header"
+import MemeGenerator from "./MemeGenerator"
+import "./style.css"
 
-class App extends Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
-
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+function App() {
+    return (
+        <div>
+            <Header />
+            <MemeGenerator />
+        </div>
+    )
 }
 
 export default App
